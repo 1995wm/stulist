@@ -1,0 +1,31 @@
+{% extends "xsgl.html" %}
+{% block title %} 
+  学生管理系统
+{% end %}
+{% block content %}
+<table border="1px" width="800" height="200" border="0" align="center" cellspacing="0" cellpadding="0">
+  <tr>
+		<tr>
+			<td >学生号</td>
+			<td>姓名</td>
+			<td>性别</td>
+			<td>专业</td>
+			<td>成绩</td>
+			<td colspan="2">说明</td>
+		</tr>
+		{% for cou in courses %}
+		<tr>
+			<td>{{ cou['cou_no'] }}</td>
+			<td>{{ cou['name'] }}</td>
+			<td>{{ cou['sex'] }}</td>
+			<td>{{ cou['pro'] }}</td>
+			<td>{{ cou['grade'] }}</td>
+			<td>{{ cou['notes'] if cou['notes'] is not None else '' }}</td>
+			<td>
+				<a href="couedit/{{cou['stu_no']}}"> 修改 </a> &nbsp;
+				<a href="coudel/{{cou['stu_no']}}"> 删除 </a>
+			</td>
+		</tr>
+		{% end %}
+	</table> 
+	{% end %}
