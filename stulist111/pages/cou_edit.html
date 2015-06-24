@@ -1,0 +1,21 @@
+{% extends "xsgl.html" %}
+{% block title %} 
+  修改课程信息
+{% end %}
+{% block content1 %}
+{% end %}
+{% block content %} 
+<div style="position:absolute;left:480px;top:350px">
+	<a href="/coulist">返回学生主页面</a>
+	<hr>
+	<form action="/couedit/{{course['stu_no']}}" method="post">
+    学生号：<input type="text" name="cou_no" value="{{course['cou_no'] if course['cou_no'] is not None else ""}}"><br>
+    姓名：&nbsp<input type="text" name="name" value="{{course['name']}}"> <br>
+    性别：&nbsp<input type="text" name="sex" value="{{course['sex'] if course['sex'] is not None else ""}}"> <br>
+    专业：&nbsp<input type="text" name="pro" value="{{course['pro'] if course['pro'] is not None else ""}}"> <br>
+    成绩：&nbsp<input type="text" name="grade" value="{{course['grade'] if course['grade'] is not None else ""}}"> <br>
+    说 明:&nbsp<input type="text" name="notes" value="{{course['notes'] if course['notes'] is not None else ""}}">
+    <input type="submit" value="提交">
+    </form>
+</div>
+{% end %}
