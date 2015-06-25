@@ -1,0 +1,412 @@
+﻿<html>
+  <head> 
+    <title>{% block title %}学生名单管理系统{% end %}</title>
+    <link href="/static/main.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+   .my{
+    font-family: Roman 常规;
+width: 75px;
+float: left;
+
+font-size: 18;
+border-width: 1px;
+background: white;
+opacity: 1;
+border:none;
+}
+
+.my li{
+      display: none;
+     
+      font-size: 20;
+      color: white;
+
+    }
+.code{ height:auto; padding:20px; border:1px solid #9EC9FE; background:#ECF3FD;}
+.code pre{ font-family:"Courier New";font-size:14px;}
+.info{ font-size:12px; color:#666666; font-family:Verdana; margin:20px 0 50px 0;}
+.info p{ margin:0; padding:0; line-height:22px; text-indent:40px;}
+h2.title{ margin:0; padding:0; margin-top:50px; font-size:18px; font-family:"微软雅黑",Verdana;}
+h3.title{ font-size:16px; font-family:"微软雅黑",Verdana;}
+.importInfo{ font-family:Verdana; font-size:14px;}
+   body {background:#FAF4FF;}
+   wrap{margin:0 auto;} 
+   </style>
+   {% block js %}{% end %}
+  </head>
+  <body>
+  <script language="javascript"> 
+function changeColor(){ 
+var color="#f00|#0f0|#00f|#880|#808|#088|yellow|green|blue|gray"; 
+color=color.split("|"); 
+document.getElementById("blink").style.color=color[parseInt(Math.random() * color.length)]; 
+} 
+setInterval("changeColor()",200); 
+</script>
+  <script type="text/javascript" src="/static/jquery-1.9.1.min.js"></script>
+<script>$(function(){
+
+$("ul li").css("backgroundColor","grey");
+$("ul").mouseleave(function(){$(this).find("li").hide();$(this).css("backgroundColor","white");});
+$("ul").mouseenter(function(){$(this).find("li").show();$(this).css("backgroundColor","grey");});
+$("li").hover(function(){$(this).css("backgroundColor","pink")});
+$("li").mouseout(function(){$(this).css("backgroundColor","grey")});
+
+document.body.onmousemove=function(e){
+
+  document.getElementById("position").innerText="x"+e.pageX+"Y"+e.pageY;
+}
+
+})
+
+</script>
+  <div id="wrap" style="text-align:center;">
+  <canvas id="canvas" width="1100" height="6" style="background:blue"></canvas></div> 
+  <img id="img1"src="/static/tjpu.jpg" height="80" hspace="110" vspace="10"/>
+  <div id="wrap" style="text-align:center;">
+  <canvas id="canvas" width="1100" height="1" style="background:grey"></canvas></div><br/>
+  <div style="position:absolute;left:1093px;top:40px">
+<a href="#" style="text-decoration:none;">   English Version</a></div>
+<input type="text" name="vpath" value=""  style="position:absolute;left:1060px;top:70px"/>
+<input type="button" name="vpath" value="" style="background:blue;position:absolute;left:1220px;top:69px;"/>
+   <table>
+  <tr>
+  <td style='width:60%'>
+  <div id="KinSlideshow" style="visibility:hidden;position:absolute;z-index:1;left:16px;top:40px;">
+        <a href="http://news.163.com/14/1119/17/ABEBF79G00014AEE.html" target="_blank"><img src="/static/qinghua.jpg" alt="天津工业大学连续六届获得国家科学技术奖" width="1300" height="500" /></a>
+        <a href="http://www.qq2.com" target="_blank"><img src="/static/xiaoxin.jpg" alt="工大联合北工大建立大气污染实验室" width="1300" height="500" /></a>
+        <a href="http://www.qq3.com" target="_blank"><img src="/static/yxw.jpg" alt="向世界展示工大的智慧" width="1300" height="500" /></a>
+        <a href="http://www.qq4.com" target="_blank"><img src="/static/4.jpg" alt="天津工业大学夏令营活动招募" width="1300" height="500" /></a>
+        <a href="http://www.qq5.com" target="_blank"><img src="/static/5.jpg" alt="美国工程院院士来访工大" width="1300" height="500" /></a>
+        <a href="http://www.qq6.com" target="_blank"><img src="/static/6.jpg" alt="工大校长就是坑" width="1300" height="500" /></a>
+    </div>
+    </td>
+    </tr>
+    </table>
+    <br/><br/><br/>
+     <div style="position:absolute;z-index:1;left:96px;top:123px;">
+  <ul border="none" class="my" type="none"><a href="/xw" style="text-decoration:none;" target="_blank">工大新闻</a>
+</ul>
+<ul class="my" type="none"><a href="/login"  style="text-decoration:none;" target="_blank">学校概况</a><li>校长致辞</li>
+<li>学校沿革</li><li>历任领导</li><li>现任领导</li>
+<li>组织机构</li><li>统计资料</li>
+</ul>
+<ul class="my"  type="none">院系设置
+</ul>
+<ul class="my" type="none">师资队伍<li>概况</li><li>杰出人才</li>
+</ul>
+<ul class="my" type="none"><a href="/coulist">教育教学</a><li>本科生教育</li>
+<li>研究生教育</li><li>留学生教育</li><li>继续教育</li>
+</ul>
+<ul class="my" type="none">科学研究<li>科研项目</li>
+<li>科研机构</li><li>科研合作</li><li>科研成果与知识产权</li><li>学术交流</li>
+</ul>
+<ul class="my" type="none">招生就业<li>本科生招生</li>
+<li>研究生招生</li><li>留学生招生</li><li>学生职业发展</li>
+</ul>
+<ul class="my" type="none"><a href="http://rsc.tjpu.edu.cn/cms3/" target="_blank" style="text-decoration:none;">人才招聘</a><li>招聘计划</li>
+<li>招聘信息</li><li>我要应聘</li>
+</ul>
+<ul class="my" type="none"><a href="http://lib.tjpu.edu.cn/" target="_blank" style="text-decoration:none;">图书馆</a>
+</ul>
+<ul class="my" type="none">走进工大<li>校园生活</li>
+<li>校园风光</li><li>实用信息</li>
+</ul>
+  </div>
+    <table border="1px" width="880" border="0" align="center" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="880" height="115"><table border="1px" cellspacing="1" width="972" height="115" border="0">
+      <tr>
+        <td width="240" height="224"><video src="/static/霍比特人3：五军之战_bd.mp4" width="240" height="224" align="top" controls="controls"></video></td>
+        <td width="422"><table align="right" border="0px" cellspacing="1"  width="422" height="218" border="0">
+        <td bgcolor=#8600FF><font>工大头条</font></td>
+          <tr>
+            <td>
+            <br/>
+            . 天津卫视天津新闻以“京津冀三地工业大学携手成立京津冀协同创新联盟”为题对我校进行了报道 
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <br/>
+            . 美国工程院院士、俄亥俄州立大学Winston Ho教授学术访问我校
+            </td>
+            </tr>
+          <tr>
+            <td>
+            <br/>
+             . 我校学生在第九届“广数杯”本科毕业设计大赛中取得佳绩
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <br/>
+            . 我校举行“长江学者”讲座教授受聘仪式暨学术报告会 
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <br/>
+            . 我校学生在2015 SAMPE超轻复合材料桥梁学生竞赛中喜获佳绩
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <br/>
+            . 第一届天津市大学生化学竞赛综合技能团队赛在我校举行
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <br/>
+            . 杨庆新校长为师生做“电工前沿技术”主题报告
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <br/>
+            . 武汉纺织大学副校长姜明华同志一行到我校交流访问
+            </td>
+            </tr>
+        </table></td>
+
+
+        <td width="296"><table border="0px" cellspacing="1" width="286" height="220" border="0">
+          <tr>
+            <td width="276" colspan="2" bgcolor="#8600FF"><span>通知与公告</span></td>
+          </tr>
+          <tr>
+            <td>. 最高人民法院关于审理利用信息网络侵害人身权益民事纠纷案件适用法律若干问题的规定 
+</td>
+          </tr>
+          <tr>
+            <td>. 我校中外合作办学评估工作进入网上公示阶段 </td>
+          </tr>
+          <tr>
+            <td>. 我校学生在第11届“用友新道杯”沙盘模拟经营大赛天津决赛中再次取得优异成绩</td>
+          </tr>
+          <tr>
+            <td>. “正泰杯”第五届全国电气工程师论文大赛征文通知</td>
+          </tr>
+          <tr>
+            <td>. 关于举办2011年天津市大学生计算机应用能力竞赛――校园DV大赛的通知</td>
+          </tr>
+          <tr>
+            <td>.《我国公众网络安全意识调查报告（2015）》首次发布 </td>
+          </tr>
+          <tr>
+            <td>. 天津工业大学校新校区C区公寓开水间热水炉采购和安装工程施工招标（竞争性谈判）公告 
+</td>
+          </tr>
+          <tr>
+            <td>. 天津工业大学新校区A区设备站能耗监控系统设计、安装 社会招标公告</td>
+          </tr>
+          <tr>
+            <td>. 2015年纺织工程与材料国际学术会议(TEM 2015)</td>
+          </tr>
+        </table></td>
+      </tr>
+      
+    </table></td>
+  </tr>
+  <tr>
+    <td height="13" valign="top"><table border="1px" cellspacing="1" width="966" height="207" border="0">
+      <tr>
+        <td width="241"><table border="0px" cellspacing="1" width="241" height="199" border="0">
+          <tr>
+            <td width="29" height="31"><img src="/static/tb4.jpg" width="29" height="27" /></td>
+            <td width="195" valign="top"><span class="STYLE2">快速通道</span></td>
+          </tr>
+          <tr>
+            <td colspan="2"><table border="0px" cellspacing="1" width="235" height="160" border="0">
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>★校园门户★</td>
+                <td><img src="/static/xf.gif" width="20" height="12" />教工信箱</td>
+              </tr>
+              <tr>
+                <td>★校内办公★</td>
+                <td><img src="/static/xf.gif" width="20" height="12" />学生信箱</td>
+              </tr>
+              <tr>
+                <td>★校园卡★</td>
+                <td><img src="/static/xf.gif" width="20" height="12" />校长信箱</td>
+              </tr>
+              <tr>
+                <td>★人才招聘★</td>
+                <td>★精品课程★</td>
+              </tr>
+              <tr>
+                <td>★招标询价公告★</td>
+                <td>★学生活动★</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table></td>
+            </tr>
+          
+        </table></td>
+        <td width="416"><table border="0px" cellspacing="1" width="417" height="198" border="0">
+          <tr>
+            <td width="34" height="22"><img src="/static/tb5.jpg" width="34" height="29" /></td>
+            <td width="367" height="22"><span class="STYLE3">人才培养与科学研究</span></td>
+          </tr>
+          <tr>
+            <td colspan="2"><table border="0px" cellspacing="1" width="408" height="162" border="0">
+              <tr>
+                <td width="62" height="55" valign="middle"><img src="/static/benkesheng.jpg" width="62" height="51" /></td>
+                <td width="62" valign="middle"> 本科生<br />
+教    育</td>
+                <td width="70"><img src="/static/yanjiusheng.jpg" width="69" height="51" /></td>
+                <td width="54">研究生<br />
+                  教    育 </td>
+                <td width="62"><a href="#" ><img src="/static/xueshenggongzuo.jpg" name="Image20" width="69" height="51" border="0" id="Image20" /></a></td>
+                <td width="58">学生工作</td>
+              </tr>
+              <tr>
+                <td height="55"><img src="/static/kexueyanjiu.jpg" width="61" height="51" /></td>
+                <td height="55">科学研究</td>
+                <td><img src="/static/xueshujiaoliu.jpg" width="68" height="51" /></td>
+                <td>学术交流</td>
+                <td><img src="/static/jiuyezhidao.jpg" width="68" height="52" /></td>
+                <td>就业指导</td>
+              </tr>
+            </table></td>
+          </tr>
+          
+        </table></td>
+        <td width="287"><table border="0px" cellspacing="0" width="286" height="200" border="0">
+          <tr>
+            <td colspan="2" bgcolor="#FFFACD"><span class="STYLE1">国际合作</span></td>
+          </tr>
+          <tr>
+            <td width="136" height="48" ><div align="center"><img src="/static/daxue1.png" width="100" height="32" align="absmiddle" /></div></td>
+            <td width="134"><div align="center"><img src="/static/daxue2.jpg" width="78" height="36" align="middle" /></div></td>
+          </tr>
+          <tr>
+            <td><div align="center"><img src="/static/daxue3.jpg" width="91" height="41" align="middle" /></div></td>
+            <td><div align="center"><img src="/static/daxue4.jpg" height="33" align="middle" /></div></td>
+          </tr>
+          <tr>
+            <td><div align="center"><img src="/static/daxue5.gif" width="104" height="37" align="middle" /></div></td>
+            <td><div align="center"><img src="/static/daxue6.jpg" width="82" height="34" align="middle" /></div></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<div id="blink" style="position:absolute;left:240px;top:1050px;"><font face="Arial"><b>RELAX YOURSELF</b></font></div>
+  <input id="a" type="button" value="start music" style="position:absolute;left:200px;top:1100px;"/>
+  <input id="b" type="button" value="end music"style="position:absolute;left:330px;top:1100px;"/>
+  <audio id="music" src="/static/Kick-Ass - Kick Ass.mp3" ></audio>
+  <br/>
+  <br/>
+<table width="1000" style="margin-left:175;"><tr>
+<td>
+  <table width="500" >
+<tr><td style="border-bottom:black 1px solid"><p>常用链接</p></td><td style="border-bottom:black 1px solid"></td><td style="border-bottom:black 1px solid"></td></tr>   
+<tr><td>校园公交车</td><td>校园地图</td><td>教育基金会</td></tr>
+<tr><td>校园公告</td><td>实用信息</td><td>校友总会</td></tr>
+  </table>
+
+</td>
+
+<td rowspan="2"><img width="140" height="100" src="/static/1.jpg">&nbsp;&nbsp;&nbsp;<img  width="120" height="100"src="/static/2.jpg">&nbsp;&nbsp;<img  width="120" height="100"src="/static/7.jpg"></td></tr></table>
+
+<table cellspacing="0" bgcolor="#DCB5FF" width="1340" align="center">
+              <tr align="center">
+              <td style="font-size:18px"><strong>学校概况</strong></td>
+              <td style="font-size:18px"><strong>院系设置</strong></td>
+              <td style="font-size:18px"><strong>师资队伍</strong></td>
+              <td style="font-size:18px"><strong>教育教学</strong></td>
+              <td style="font-size:18px"><strong>科学研究</strong></td>
+                <td style="font-size:18px"><strong>招生就业</strong></td>
+                <td style="font-size:18px"><strong>人才招聘</strong></td>
+                 <td style="font-size:18px"><strong>走进工大</strong></td>
+              </tr>
+              <tr align="center">>
+                <td><br/>校长致辞</td>
+                 <td></td>
+                  <td><br/>概况</td> <td><br/>本科生教育</td> <td><br/>科研项目</td> <td><br/>本科生招生</td> <td><br/>招聘计划</td> <td><br/>校园生活</td>
+              </tr>
+              <tr align="center">>
+                <td><br/>学校沿革</td>
+                <td><br/></td>
+                <td><br/>杰出人才</td>
+                 <td><br/>研究生教育</td>
+                  <td><br/>科研机构</td>
+                   <td><br/>研究生招生</td>
+                    <td><br/>招聘信息</td>
+                     <td><br/>校园风光</td>
+              </tr>
+              <tr align="center">>
+                <td>历任领导</td>
+                <td><br/></td>
+                <td><br/></td>
+                <td><br/>留学生教育</td>
+                 <td><br/>科研合作</td>
+                  <td><br/>留学生招生</td>
+                   <td><br/>我要应聘</td>
+                    <td><br/>实用信息</td>
+              </tr>
+              <tr align="center">>
+                <td><br/>现任领导</td>
+                <td><br/></td>
+                <td><br/></td>
+                <td><br/>继续教育</td>
+                <td><br/>科研成果与知识产权</td>
+                <td><br/>学生职业发展</td>
+                 <td><br/></td>
+                  <td><br/></td>
+              </tr>
+              <tr align="center">>
+                <td><br/>组织机构</td>
+                <td><br/></td>
+                <td><br/></td>
+                <td><br/></td>
+                <td><br/>学术交流</td>
+                 <td><br/></td>
+                  <td><br/></td>
+                   <td><br/></td>
+              </tr>
+              <tr align="center">>
+                <td><br/>统计资料</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              </table>
+  <table width="1340" border="0" cellpadding="0" cellspacing="0" style="position:absolute;top:1728px;">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="1340" height="98"><p align="center"><marquee behavior="alternate" direction="left" bgcolor="#808080">
+      <div align="center">版权所有 © 2012 天津工业大学 地址：天津市西青区宾水西道399号 邮编：300387       <br/>津ICP备05004363号 津教备0187号 
+      </div>
+    </marquee></p></td>
+  </tr>
+</table>
+<script  type="text/javascript" src="/static/javascript.js"></script>
+ <script src="/static/jquery-1.4a2.min.js" type="text/javascript"></script>
+<script src="/static/huandengpian.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+  $("#KinSlideshow").KinSlideshow();
+})
+</script>
+  </body>
+</html>

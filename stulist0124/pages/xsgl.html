@@ -1,0 +1,71 @@
+﻿<html>
+<head>
+<title>
+{% block title %} 
+  学生管理系统
+{% end %}
+</title>
+<style type="text/css">
+body{
+	background-color:#CA8EFF;
+}
+</style>
+</head>
+<body>
+<p>[公告] <a herf="#">新闻测试页面</a></p>
+<br/>
+<br/>
+    <table border=1 align="center" width=1200 height=600 bgcolor="#7AFEC6">
+    <tr>
+    <td>
+    {% block content1 %}
+	<table  border="0px" width="800" border="0" align="center" cellspacing="0" cellpadding="0">
+	<tr style="background-color:rgb(110,220,220);width="800;""><td style="border-style:none;vertical-align:middle; text-align:center;" colspan="7">用户管理</td></tr>
+
+	<tr style="height:60px; background-color:rgb(220,220,220);"><td colspan="3"style="border-style:none;vertical-align:middle; text-align:center;"><a href="couedit/new">添加新用户</a></td><td colspan="4" style="border-style:none;vertical-align:middle; text-align:center;"> 相关用户搜索:<select  name="11" id="11" 
+        onbeforeactivate="return false" 
+        onfocus="this.blur()"
+        onmouseover="this.setCapture()"
+        onmouseout="this.releaseCapture()"> 
+   <option value="1">18-21</option> 
+   <option value="2">22-25</option>
+   <option value="3">26-29</option>
+   <option value="4">30-35</option>
+   <option value="5">Over35</option> 
+  </select>
+  <input type="text"/>
+  <input type="button" value="搜索"/></td></tr></table>
+  <br/>
+  <br/>
+  {% end %}
+  {% block content %}
+  
+	{% end %}
+	</td>
+	</tr>
+	</table>
+	<div style="position:absolute;left:100px;top:84px">
+   天津工业大学学生管理系统</div>
+<div style="position:absolute;left:100px;top:114px">
+   用户名：admin 最近登录时间：2015-3-21 11:23:33</div>
+   <div style="position:absolute;left:100px;top:144px">
+    你可以进行一下操作：<a href="#"> 学生学籍查询 学生信息查询 成绩查询 用户管理 公告管理</a>
+	</div>
+	<div style="text-align:center;">
+	Copyright (C) 2015 天津工业大学
+	</div>
+<div style="position:absolute;left:800px;top:12px">
+<a href="/">返回首页</a>
+</div>
+<img src="/static/xgmm.png" style="position:absolute;left:880px;top:8px;width:30px;height:30px;"/>
+<div style="position:absolute;left:920px;top:12px">
+<a href="">修改密码</a>
+<img src="/static/tc.png" style="position:absolute;left:80px;top:-4px;width:30px;height:30px;"/>
+</div>
+<div style="position:absolute;left:1050px;top:12px">
+<a href="/logout">安全退出</a></div>
+<img src="/static/bangzhu.png" style="position:absolute;left:1130px;top:6px;width:30px;height:30px;"/>
+<div style="position:absolute;left:1170px;top:13px">
+<a href="">帮助</a></div>
+</body>
+</html>
